@@ -1,24 +1,37 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Phone, MapPin, Clock } from "lucide-react";
 
 export default function ReservationContent() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div className="pt-24 pb-20">
-      {/* Header - dark */}
-      <div className="text-center mb-16 pt-8 px-6">
-        <p className="text-amber text-sm tracking-[0.15em] mb-3">Réservation</p>
-        <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl text-cream mb-4">
-          Réserver une table
-        </h1>
-        <p className="text-cream-muted text-lg max-w-lg mx-auto leading-relaxed">
-          Remplissez le formulaire et nous confirmerons votre réservation dans
-          les plus brefs délais.
-        </p>
-      </div>
+    <div className="pb-20">
+      {/* Hero */}
+      <section className="relative h-[45vh] min-h-[350px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=800&fit=crop"
+          alt="Salle à manger Fornello"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-bg-dark/60" />
+        <div className="relative z-10 text-center px-6">
+          <p className="text-amber text-sm tracking-[0.15em] mb-3">
+            Réservation
+          </p>
+          <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl text-cream mb-4">
+            Réserver une table
+          </h1>
+          <p className="text-cream-muted text-lg max-w-lg mx-auto leading-relaxed">
+            Remplissez le formulaire et nous confirmerons votre réservation dans
+            les plus brefs délais.
+          </p>
+        </div>
+      </section>
 
       {/* Form - warm */}
       <section className="bg-bg-warm py-16 px-6">
