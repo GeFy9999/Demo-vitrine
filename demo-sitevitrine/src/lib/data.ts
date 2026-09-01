@@ -119,7 +119,7 @@ export const menuCategories = [
   {
     name: "Desserts",
     image:
-      "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&h=400&fit=crop",
     items: [
       {
         name: "Tiramisu maison",

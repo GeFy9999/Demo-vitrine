@@ -2,26 +2,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { popularDishes } from "@/lib/data";
 import Gallery from "@/components/gallery";
-import { Flame, Wine, Users, Clock } from "lucide-react";
 
 const highlights = [
   {
-    icon: Flame,
     title: "Four à bois",
     text: "Cuisson à 900°F pour une croûte parfaite en 90 secondes",
   },
   {
-    icon: Wine,
     title: "Bar à vin",
     text: "Sélection de vins italiens et d'importation privée",
   },
   {
-    icon: Users,
     title: "Ambiance chaleureuse",
     text: "Cadre intime pour vos soirées entre amis ou en famille",
   },
   {
-    icon: Clock,
     title: "Produits frais",
     text: "Pâte fermentée 72h, ingrédients importés d'Italie",
   },
@@ -71,29 +66,52 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* Highlights — Light section */}
-      <section className="py-20 px-6 bg-bg-warm">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {highlights.map((h) => (
-            <div key={h.title} className="text-center group cursor-default">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border border-amber-dark/30 mb-4 group-hover:bg-amber group-hover:border-amber transition-all duration-300">
-                <h.icon
-                  size={22}
-                  className="text-amber-dark group-hover:text-bg-dark transition-colors duration-300"
-                />
-              </div>
-              <h3 className="font-[family-name:var(--font-display)] text-lg text-charcoal mb-2">
-                {h.title}
-              </h3>
-              <p className="text-charcoal/60 text-sm leading-relaxed">
-                {h.text}
-              </p>
+      {/* Highlights — split layout */}
+      <section className="bg-bg-warm">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
+          {/* Image */}
+          <div className="relative aspect-[4/3] m-8 lg:m-12 overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=900&h=700&fit=crop"
+              alt="Pizza au four à bois"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* Content */}
+          <div className="flex flex-col justify-center px-8 sm:px-14 py-16 lg:py-20">
+            <p className="text-amber-dark text-sm tracking-[0.15em] mb-3 font-medium">
+              Pourquoi Fornello
+            </p>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl text-charcoal mb-10 leading-snug">
+              Ce qui nous
+              <br />
+              distingue
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {highlights.map((h, i) => (
+                <div key={h.title} className="group">
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span className="font-[family-name:var(--font-display)] text-3xl text-amber-dark/30 group-hover:text-amber-dark transition-colors duration-300">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-[family-name:var(--font-display)] text-lg text-charcoal">
+                      {h.title}
+                    </h3>
+                  </div>
+                  <p className="text-charcoal/55 text-sm leading-relaxed pl-10">
+                    {h.text}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
-      {/* Popular dishes — Dark section */}
+      {/* Popular dishes */}
       <section className="py-24 px-6 bg-bg-dark">
         <div className="max-w-6xl mx-auto">
           <div className="mb-14 text-center">
@@ -151,7 +169,7 @@ export default function HomeContent() {
       {/* Gallery */}
       <Gallery />
 
-      {/* CTA — Warm section */}
+      {/* CTA */}
       <section className="py-24 px-6 bg-bg-warm">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl text-charcoal mb-5">
