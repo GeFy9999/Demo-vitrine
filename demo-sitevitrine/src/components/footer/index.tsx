@@ -47,7 +47,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-cream-muted/60 text-xs">
-            © 2026 Fornello — Site démo réalisé par Zachary Bhérer
+            © 2026 Fornello — Site démo réalisé par Zachary Belley
           </p>
           <div className="flex gap-6">
             <span className="text-cream-muted/60 text-xs">Mar–Dim 11h–22h</span>
